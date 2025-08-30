@@ -1,0 +1,144 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import '../../../common_widgets/sr_textfield.dart';
+import '../../../utils/sr_scaffold.dart';
+import '../controllers/check_list_controller.dart';
+
+
+class CheckListView extends StatefulWidget {
+  CheckListView({super.key});
+
+  @override
+  State<CheckListView> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<CheckListView> {
+  late CheckListController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = Get.put(CheckListController());
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SrScaffold.scaffold(
+      backgroundColor: Color(0xff006cff),
+      resizeToAvoidBottomInset: true,
+      body: Obx(
+        () => Column(
+          children: [
+
+            SizedBox(height: 100.w,),
+            Row(
+              children: [
+                SizedBox(width: 32.w,),
+                Image.asset(
+                  '${controller.topLeftLogo.value}',
+                  width: 219.w,
+                  height: 50.w,
+                  fit: BoxFit.contain,
+                ),
+
+                Spacer(),
+                Image.asset(
+                  'assets/images/11590@3x.png',
+                  width: 80.w,
+                  height: 80.w,
+                  fit: BoxFit.fill,
+                ),
+                SizedBox(width: 10.w,),
+                Text("蛇墩墩点",style: TextStyle(color: Colors.white,fontSize: 32.w),),
+                SizedBox(width: 32.w,),
+              ],
+            ),
+            SizedBox(height: 40.w,),
+            Container(
+                height: 90.w,
+                alignment: Alignment.center,
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    controller: controller.scrollController,     // 绑定 ScrollController
+                    // 设置为横向滚动
+                    itemCount: controller.dataList.length,
+                    physics: const BouncingScrollPhysics(),
+                    // shrinkWrap: true,
+                    itemBuilder: (BuildContext context, int index) {
+                      return InkWell(
+                        onTap: () {
+                          controller.itemOnClick(index);
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.only(left: 30.w),
+                          child: controller.dataList[index]['choice'] ? Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(100.w),
+                              color:  const Color(0xffffffff),
+                            ),
+                            child: Container(
+                              width: 320.w,
+                              decoration: BoxDecoration(
+                                color: controller.dataList[index]['choice'] ? const Color(0xff006cff) : const Color(0xffeeeeee),
+                                borderRadius:
+                                BorderRadius.circular(18.w), // 设置圆角半径
+                              ),
+                              child: Center(
+                               child:      Text(controller.dataList[index]["title"],
+                                   style: TextStyle(
+                                       color: Color(0xff006cff),
+                                       fontWeight: FontWeight.w600,
+                                       fontSize: 28.w)),
+                              ),
+                            ),
+                          ):
+                          Container(
+                            width: 320.w,
+                            decoration: BoxDecoration(
+                              color: controller.dataList[index]['choice'] ? const Color(0xffffffff) : const Color(0xffeeeeee),
+                              borderRadius: BorderRadius.circular(100.w),
+
+                            ),
+                            child:  Center(
+                              child:      Text(controller.dataList[index]["title"],
+                                  style: TextStyle(
+                                      color: Color(0xff006cff),
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 28.w)),
+                            ),
+                          ),
+                        ),
+                      );
+                    })),
+
+            Container(
+            constraints: BoxConstraints(
+              minHeight: 200.h,  // 设置最小高度
+              maxHeight: 500.h,  // 设置最大高度
+            ),
+            child: TabBarView(
+              physics: const NeverScrollableScrollPhysics(), // 禁止滑动
+              controller: controller.tabController,
+              children:   [
+                Container(
+                    constraints: BoxConstraints(
+                      minHeight: 200.h,  // 设置最小高度
+                      maxHeight: 500.h,  // 设置最大高度
+                    ),
+                 ),
+                Container(
+                  constraints: BoxConstraints(
+                      minHeight: 200.h,  // 设置最小高度
+                      maxHeight: 500.h,  // 设置最大高度
+                  ),
+                ),
+              ],
+            ))
+
+          ],
+        ),
+      ),
+    );
+  }
+}

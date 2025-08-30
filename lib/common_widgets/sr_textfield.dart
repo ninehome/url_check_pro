@@ -82,7 +82,7 @@ class _DzTextFiledWidgetState extends State<SrTextFiledWidget> {
         alignment: Alignment.centerLeft,
         decoration: widget.decoration ??
             BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(10),
                 color: widget.backgroundColor ?? Colors.white),
         child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -109,11 +109,9 @@ class _DzTextFiledWidgetState extends State<SrTextFiledWidget> {
                 keyboardType: widget.inputType,
                 inputFormatters: inputFormatter,
                 style: widget.style ??
-                    TextStyle(
-                        color: SrColor.color_000000,
-                        fontSize: 32.sp,
-                        textBaseline: TextBaseline.alphabetic),
-                textInputAction: widget.textInputAction,
+                    TextStyle(fontSize: 32.w, color: const Color(0xff333333), fontWeight: FontWeight.w500, fontFamily: 'PingFang SC',),
+
+                      textInputAction: widget.textInputAction,
                 obscureText: widget.obscureText ?? false,
                 obscuringCharacter: '*',
                 //输入文本的样式
@@ -126,11 +124,7 @@ class _DzTextFiledWidgetState extends State<SrTextFiledWidget> {
                     focusedErrorBorder: InputBorder.none,
                     hintText: widget.hintText,
                     hintStyle: widget.hintStyle ??
-                        TextStyle(
-                            fontSize: 32.sp,
-                            color: SrColor.colorHint,
-                            height: 1.2,
-                            textBaseline: TextBaseline.alphabetic),
+                         TextStyle(fontSize: 32.w, color: const Color(0xff999999), fontWeight: FontWeight.w500, fontFamily: 'PingFang SC',),
                     counterText: '',
                     isDense: true,
                     contentPadding: EdgeInsets.all(5.w)),
