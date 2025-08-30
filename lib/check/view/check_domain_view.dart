@@ -27,7 +27,9 @@ class CheckDomainView extends GetView<CheckDomainController>{
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Color(0xff006cff),
-        leading: Icon(Icons.arrow_back_outlined,color: Colors.white,),
+        leading: InkWell(onTap: (){
+          Get.back();
+        },child: Icon(Icons.arrow_back_outlined,color: Colors.white,),),
         title: Text('检测域名',style: TextStyle(color: Colors.white,fontSize: 18),),
       ),
       body: SafeArea(

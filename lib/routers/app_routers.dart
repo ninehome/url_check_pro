@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:untitled2/check_photo/binding/check_photo_binding.dart';
+import 'package:untitled2/check_photo/view/check_photo_view.dart';
 
 import '../app/login_register/views/login_view.dart';
 import '../app/today_task/view/today_task_view.dart';
@@ -19,10 +21,9 @@ class AppRouter {
   static const checkDomain = '/check_domain';
   static const checkRecord = '/check_record';
   static const checkResult = '/check_result';
+  static const checkPhotoView = '/check_photo_result';
 
   static String checkListView = "/me_CheckListView";
-
-
 
 
 }
@@ -41,6 +42,8 @@ class GetPages {
     GetPage(name: AppRouter.checkResult, page:() =>CheckResultView(),binding: CheckResultBinding()),
 
     GetPage(name: AppRouter.checkResult, page:() =>TodayTaskView(),binding: CheckResultBinding()),
+
+    GetPage(name: AppRouter.checkPhotoView, page:() =>CheckPhotoView(),binding: CheckPhotoBinding()),
 
 
   ];
