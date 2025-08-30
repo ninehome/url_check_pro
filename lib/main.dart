@@ -4,12 +4,9 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
-
 import 'package:untitled2/routers/app_routers.dart';
 import 'package:untitled2/routers/sr_router_observers.dart';
-
 import 'package:untitled2/utils/sr_theme.dart';
-import 'app/login_register/views/login_view.dart';
 import 'app_init_binding.dart';
 import 'common_widgets/toast_utils.dart';
 
