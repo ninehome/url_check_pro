@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
@@ -116,6 +117,11 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver{
           locale: const Locale('zh', "CN"),
           supportedLocales: const [
             Locale('zh', 'CN'),
+          ],
+          localizationsDelegates: const [
+            GlobalWidgetsLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate
           ],
           home:  LoginView(),
           builder: DialogUtils.initLoading(builder: (context, child) {

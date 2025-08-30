@@ -34,7 +34,7 @@ class _LoginPageState extends State<LoginView> {
         () => Column(
           children: [
             Container(
-              width: 1.sw - 160.w,
+              width: double.infinity,
               height: 104.w,
               margin: EdgeInsets.only(left: 20.w, right: 20.w,top: 300.h),
               decoration: BoxDecoration(
@@ -83,45 +83,45 @@ class _LoginPageState extends State<LoginView> {
                 ],
               ),
             ),
-            Container(
-              width: double.infinity,
-              height: 104.w,
-              margin: EdgeInsets.only(left: 20.w, right: 20.w,top: 50.h),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(48.w),
-              ),
-              child: Row(
-                children: [
-                  Image.asset(
-                    'assets/images/icon_phone.png',
-                    width: 40.w,
-                    height: 40.w,
-                    fit: BoxFit.fill,
-                  ),
-                  SizedBox(width: 16.w,),
-                  SizedBox(
-                    width: 1.sw - 264.w,
-                    height: 104.w,
-                    child: SrTextFiledWidget(
-                      padding: const EdgeInsets.symmetric(horizontal: 0),
-                      height: 116.w,
-                      controller: logic.codeController,
-                      backgroundColor: Colors.white,
-                      hintText: "请输入短信验证码",
-                      // maxLength: 11,
-                      inputType: TextInputType.phone,
-                      // hintStyle: SrStyle.w_28_placeholder,
-                      // style: SrStyle.w_32_black_semi,
-                      onChanged: (value) {
-                        logic.checkLogin();
-                      },
-
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            // Container(
+            //   width: double.infinity,
+            //   height: 104.w,
+            //   margin: EdgeInsets.only(left: 20.w, right: 20.w,top: 50.h),
+            //   decoration: BoxDecoration(
+            //     color: Colors.white,
+            //     borderRadius: BorderRadius.circular(48.w),
+            //   ),
+            //   child: Row(
+            //     children: [
+            //       Image.asset(
+            //         'assets/images/icon_password.png',
+            //         width: 40.w,
+            //         height: 40.w,
+            //         fit: BoxFit.fill,
+            //       ),
+            //       SizedBox(width: 16.w,),
+            //       SizedBox(
+            //         width: 1.sw - 264.w,
+            //         height: 104.w,
+            //         child: SrTextFiledWidget(
+            //           padding: const EdgeInsets.symmetric(horizontal: 0),
+            //           height: 116.w,
+            //           controller: logic.codeController,
+            //           backgroundColor: Colors.white,
+            //           hintText: "请输入短信验证码",
+            //           // maxLength: 11,
+            //           inputType: TextInputType.phone,
+            //           // hintStyle: SrStyle.w_28_placeholder,
+            //           // style: SrStyle.w_32_black_semi,
+            //           onChanged: (value) {
+            //             logic.checkLogin();
+            //           },
+            //
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
 
             GestureDetector(
               behavior: HitTestBehavior.opaque,
