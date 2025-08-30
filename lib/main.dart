@@ -9,9 +9,10 @@ import 'package:untitled2/routers/app_routers.dart';
 import 'package:untitled2/routers/sr_router_observers.dart';
 
 import 'package:untitled2/utils/sr_theme.dart';
+import 'app/login_register/views/login_view.dart';
 import 'app_init_binding.dart';
 import 'common_widgets/toast_utils.dart';
-import 'login_register/views/login_view.dart';
+
 
 Future<void> main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();

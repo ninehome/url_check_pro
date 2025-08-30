@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import '../../../check_record/view/check_record_view.dart';
 import '../../../common_widgets/sr_textfield.dart';
 import '../../../utils/sr_scaffold.dart';
+import '../../today_task/view/today_task_view.dart';
 import '../controllers/check_list_controller.dart';
 
 
@@ -80,12 +82,11 @@ class _LoginPageState extends State<CheckListView> {
                             child: Container(
                               width: 320.w,
                               decoration: BoxDecoration(
-                                color: controller.dataList[index]['choice'] ? const Color(0xff006cff) : const Color(0xffeeeeee),
-                                borderRadius:
-                                BorderRadius.circular(18.w), // 设置圆角半径
+                                color: controller.dataList[index]['choice'] ? const Color(0xffffffff) : const Color(0xffeeeeee),
+                                borderRadius: BorderRadius.circular(100.w),
                               ),
                               child: Center(
-                               child:      Text(controller.dataList[index]["title"],
+                               child:  Text(controller.dataList[index]["title"],
                                    style: TextStyle(
                                        color: Color(0xff006cff),
                                        fontWeight: FontWeight.w600,
@@ -96,14 +97,15 @@ class _LoginPageState extends State<CheckListView> {
                           Container(
                             width: 320.w,
                             decoration: BoxDecoration(
-                              color: controller.dataList[index]['choice'] ? const Color(0xffffffff) : const Color(0xffeeeeee),
+                              color: controller.dataList[index]['choice'] ? const Color(0xffffffff) : Color(
+                                  0x11021125),
                               borderRadius: BorderRadius.circular(100.w),
 
                             ),
                             child:  Center(
-                              child:      Text(controller.dataList[index]["title"],
+                              child:Text(controller.dataList[index]["title"],
                                   style: TextStyle(
-                                      color: Color(0xff006cff),
+                                      color: Color(0xffeeeeee),
                                       fontWeight: FontWeight.w600,
                                       fontSize: 28.w)),
                             ),
@@ -112,29 +114,17 @@ class _LoginPageState extends State<CheckListView> {
                       );
                     })),
 
-            Container(
-            constraints: BoxConstraints(
-              minHeight: 200.h,  // 设置最小高度
-              maxHeight: 500.h,  // 设置最大高度
-            ),
-            child: TabBarView(
-              physics: const NeverScrollableScrollPhysics(), // 禁止滑动
-              controller: controller.tabController,
-              children:   [
-                Container(
-                    constraints: BoxConstraints(
-                      minHeight: 200.h,  // 设置最小高度
-                      maxHeight: 500.h,  // 设置最大高度
-                    ),
-                 ),
-                Container(
-                  constraints: BoxConstraints(
-                      minHeight: 200.h,  // 设置最小高度
-                      maxHeight: 500.h,  // 设置最大高度
-                  ),
-                ),
-              ],
-            ))
+            SizedBox(height: 30.w,),
+            Expanded(
+              child: TabBarView(
+                physics: const NeverScrollableScrollPhysics(), // 禁止滑动
+                controller: controller.tabController,
+                children:   [
+                  TodayTaskView(),
+                  CheckRecordView()
+                ],
+              ),
+            )
 
           ],
         ),

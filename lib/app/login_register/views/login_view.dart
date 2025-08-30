@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import '../../../routers/app_routers.dart';
-import '../../common_widgets/sr_image_widget.dart';
-import '../../common_widgets/sr_textfield.dart';
-import '../../utils/sr_scaffold.dart';
-import '../../utils/throttle_utils.dart';
+import '../../../common_widgets/sr_textfield.dart';
+import '../../../utils/sr_scaffold.dart';
 import '../controllers/login_controller.dart';
 
 

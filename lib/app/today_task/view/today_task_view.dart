@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-
-import '../../routers/app_routers.dart';
-import '../controller/check_record_controller.dart';
-class CheckRecordView extends GetView<CheckRecordController>{
+import '../../../routers/app_routers.dart';
+import '../controller/today_task_controller.dart';
+class TodayTaskView extends GetView<TodayTaskController>{
   @override
   Widget build(BuildContext context) {
     return Container(
