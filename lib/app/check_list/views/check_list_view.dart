@@ -45,12 +45,21 @@ class _LoginPageState extends State<CheckListView> {
                 ),
 
                 Spacer(),
-                Image.asset(
-                  'assets/images/11590@3x.png',
-                  width: 80.w,
-                  height: 80.w,
-                  fit: BoxFit.fill,
+
+                Container(
+                  width: 65.w,
+                  height: 65.w,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(color: Colors.white, width: 2.w),
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/user_logo.png'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
+
+
                 SizedBox(width: 10.w,),
                 Text("蛇墩墩点",style: TextStyle(color: Colors.white,fontSize: 32.w),),
                 SizedBox(width: 32.w,),
