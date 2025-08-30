@@ -1,141 +1,122 @@
-import 'package:check_network/login_register/views/login_view.dart';
-import 'package:check_network/routers/app_routers.dart';
-import 'package:check_network/routers/sr_router_observers.dart';
-import 'package:check_network/utils/sp_util.dart';
-import 'package:check_network/utils/sr_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:get/get_navigation/src/routes/transitions_type.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'app_init_binding.dart';
-import 'common_widgets/toast_utils.dart';
 
-Future<void> main() async {
-  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-
-  // /// 安卓的工具栏背景色透明
-  // if (Platform.isAndroid) {
-  //   SystemUiOverlayStyle systemUiOverlayStyle = const SystemUiOverlayStyle(
-  //       systemNavigationBarIconBrightness: Brightness.dark,
-  //       //使用的时候发现，在虚拟按键的手机上，如果是采用全透明颜色，虚拟按键上将会有个半透明的白色覆盖，达不到全屏沉浸效果，所以需要使用非0透明值的颜色。
-  //       systemNavigationBarColor: Colors.black,
-  //       systemNavigationBarContrastEnforced: true,
-  //       statusBarColor: Colors.transparent);
-  //   // SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
-  //
-  // } else if (Platform.isIOS) {
-  //   /// iOS状态栏使用白色字体
-  //   // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
-  //   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.bottom]);  //隐藏状态栏 上方黑边
-  //
-  //   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.top]); //隐藏导航栏
-  //
-  //   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);  // 隐藏状态栏和导航栏  上方黑板
-  //   // SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle( //设置状态栏透明
-  //   //   statusBarColor: Colors.transparent,
-  //   // ));
-  // }
-
-  await spUtil.init();
-
-
-
+void main() {
   runApp(const MyApp());
 }
 
-GlobalKey<NavigatorState> navContextKey = GlobalKey();
-
-
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> with WidgetsBindingObserver{
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addObserver(this); // 监听应用生命周期
-  }
-
-  @override
-  void dispose() {
-    WidgetsBinding.instance.removeObserver(this); // 取消监听
-    super.dispose();
-  }
-
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    super.didChangeAppLifecycleState(state);
-
-    switch (state) {
-      case AppLifecycleState.resumed:// 从后台切换前台，界面可见
-
-
-        break;
-      case AppLifecycleState.inactive:
-
-        break;
-      case AppLifecycleState.paused: // 界面不可见，后台
-
-
-        break;
-      case AppLifecycleState.detached:
-
-        break;
-      case AppLifecycleState.hidden:
-
-        break;
-    }
-  }
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        // This is the theme of your application.
+        //
+        // TRY THIS: Try running your application with "flutter run". You'll see
+        // the application has a purple toolbar. Then, without quitting the app,
+        // try changing the seedColor in the colorScheme below to Colors.green
+        // and then invoke "hot reload" (save your changes or press the "hot
+        // reload" button in a Flutter-supported IDE, or press "r" if you used
+        // the command line to start the app).
+        //
+        // Notice that the counter didn't reset back to zero; the application
+        // state is not lost during the reload. To reset the state, use hot
+        // restart instead.
+        //
+        // This works for code too, not just values: Most code changes can be
+        // tested with just a hot reload.
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      ),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    );
+  }
+}
 
-    return ScreenUtilInit(
-      designSize: const Size(750,1336),
-      builder: (context,child){
-        return GetMaterialApp(
-          debugShowCheckedModeBanner: false,
-          navigatorKey: navContextKey,
-          theme: SrTheme().getTheme(),
-          defaultTransition: Transition.cupertino,
-          navigatorObservers: [srRouterObserver],
-          initialRoute: AppRouter.loginPage,
-          initialBinding: AppInitBinding(context),
-          getPages: GetPages.getPages,
-          color: Colors.white,
-          title: "域名检测",
-          fallbackLocale: const Locale('zh', 'CN'),
-          locale: const Locale('zh', "CN"),
-          supportedLocales: const [
-            Locale('zh', 'CN'),
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+
+  // This widget is the home page of your application. It is stateful, meaning
+  // that it has a State object (defined below) that contains fields that affect
+  // how it looks.
+
+  // This class is the configuration for the state. It holds the values (in this
+  // case the title) provided by the parent (in this case the App widget) and
+  // used by the build method of the State. Fields in a Widget subclass are
+  // always marked "final".
+
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      // This call to setState tells the Flutter framework that something has
+      // changed in this State, which causes it to rerun the build method below
+      // so that the display can reflect the updated values. If we changed
+      // _counter without calling setState(), then the build method would not be
+      // called again, and so nothing would appear to happen.
+      _counter++;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // This method is rerun every time setState is called, for instance as done
+    // by the _incrementCounter method above.
+    //
+    // The Flutter framework has been optimized to make rerunning build methods
+    // fast, so that you can just rebuild anything that needs updating rather
+    // than having to individually change instances of widgets.
+    return Scaffold(
+      appBar: AppBar(
+        // TRY THIS: Try changing the color here to a specific color (to
+        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
+        // change color while the other colors stay the same.
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        // Here we take the value from the MyHomePage object that was created by
+        // the App.build method, and use it to set our appbar title.
+        title: Text(widget.title),
+      ),
+      body: Center(
+        // Center is a layout widget. It takes a single child and positions it
+        // in the middle of the parent.
+        child: Column(
+          // Column is also a layout widget. It takes a list of children and
+          // arranges them vertically. By default, it sizes itself to fit its
+          // children horizontally, and tries to be as tall as its parent.
+          //
+          // Column has various properties to control how it sizes itself and
+          // how it positions its children. Here we use mainAxisAlignment to
+          // center the children vertically; the main axis here is the vertical
+          // axis because Columns are vertical (the cross axis would be
+          // horizontal).
+          //
+          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
+          // action in the IDE, or press "p" in the console), to see the
+          // wireframe for each widget.
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Text('You have pushed the button this many times:'),
+            Text(
+              '$_counter',
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
           ],
-          home:  LoginView(),
-          localizationsDelegates:  [
-            GlobalWidgetsLocalizations.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate
-          ],
-          builder: DialogUtils.initLoading(builder: (context, child) {
-            return MediaQuery(
-              data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
-              //控制不跟随系统
-              child: GestureDetector(
-                onTap: () {
-                  FocusManager.instance.primaryFocus?.unfocus();
-                },
-                child: child!,
-              ),
-            );
-          }),
-        );
-      },
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

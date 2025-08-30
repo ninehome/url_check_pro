@@ -1,4 +1,4 @@
-# check_network
+# untitled2
 
 A new Flutter project.
 
@@ -14,11 +14,3 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
-
-
-
-色度值
-
-主题色文字蓝色：#006cff
-登录界面密码错误提示色：#ff8080
-橙色值：#ff7f00
