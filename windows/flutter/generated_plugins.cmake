@@ -3,8 +3,6 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
-  flutter_inappwebview_windows
-  flutter_localization
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST

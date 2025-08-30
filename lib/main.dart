@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+
 import 'package:untitled2/routers/app_routers.dart';
 import 'package:untitled2/routers/sr_router_observers.dart';
-import 'package:untitled2/utils/sp_util.dart';
+
 import 'package:untitled2/utils/sr_theme.dart';
 import 'app_init_binding.dart';
 import 'common_widgets/toast_utils.dart';
@@ -39,7 +39,7 @@ Future<void> main() async {
   //   // ));
   // }
 
-  await spUtil.init();
+
 
 
 
@@ -118,11 +118,6 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver{
             Locale('zh', 'CN'),
           ],
           home:  LoginView(),
-          localizationsDelegates:  [
-            GlobalWidgetsLocalizations.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate
-          ],
           builder: DialogUtils.initLoading(builder: (context, child) {
             return MediaQuery(
               data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
