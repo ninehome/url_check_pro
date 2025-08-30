@@ -43,7 +43,12 @@ class _LoginPageState extends State<LoginView> {
               ),
               child: Row(
                 children: [
-                  SrImageWidget.pngImage('icon_phone', size: Size(48.w, 48.w),),
+                  Image.asset(
+                    'assets/images/icon_phone.png',
+                    width: 40.w,
+                    height: 40.w,
+                    fit: BoxFit.fill,
+                  ),
                   SizedBox(width: 16.w,),
                   SizedBox(
                     width: 1.sw - 264.w,
@@ -79,16 +84,21 @@ class _LoginPageState extends State<LoginView> {
               ),
             ),
             Container(
-              width: 1.sw - 160.w,
+              width: double.infinity,
               height: 104.w,
-              padding: EdgeInsets.only(left: 20.w, right: 20.w),
+              margin: EdgeInsets.only(left: 20.w, right: 20.w,top: 50.h),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(48.w),
               ),
               child: Row(
                 children: [
-                  SrImageWidget.pngImage('icon_code', size: Size(48.w, 48.w),),
+                  Image.asset(
+                    'assets/images/icon_phone.png',
+                    width: 40.w,
+                    height: 40.w,
+                    fit: BoxFit.fill,
+                  ),
                   SizedBox(width: 16.w,),
                   SizedBox(
                     width: 1.sw - 264.w,
