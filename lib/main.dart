@@ -106,7 +106,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver{
           theme: SrTheme().getTheme(),
           defaultTransition: Transition.cupertino,
           navigatorObservers: [srRouterObserver],
-          initialRoute: AppRouter.loginPage,
+          initialRoute: AppRouter.checkDomain,
           initialBinding: AppInitBinding(context),
           getPages: GetPages.getPages,
           color: Colors.white,

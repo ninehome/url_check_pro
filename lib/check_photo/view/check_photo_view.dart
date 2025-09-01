@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -43,11 +42,9 @@ class CheckPhotoView extends GetView<CheckPhotoController> {
                     ),
                   ),
                   // backgroundDecoration: widget.backgroundDecoration,
-                  // pageController: widget.pageController,
+                  pageController: controller.pageController,
                   onPageChanged: (index){
-                    log("jindu:$index");
-                    controller.currentIndex.value = index ;
-                    controller.update();
+                    controller.onPageChanged(index);
                   },
                 )
             ),
@@ -78,7 +75,7 @@ class CheckPhotoView extends GetView<CheckPhotoController> {
                     Align(
                       alignment: Alignment.center,
                       child: Text(
-                        '${controller.currentIndex + 1} / ${controller.galleryItems.length}',
+                        '${controller.currentTag} / ${controller.galleryItems.length}',
                         style: TextStyle(color: Colors.white, fontSize: 18),
                       ),
                     )

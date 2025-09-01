@@ -1,8 +1,9 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:untitled2/common_widgets/toast_utils.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CheckDomainController extends GetxController{
 
@@ -34,18 +35,30 @@ class CheckDomainController extends GetxController{
 
 
   void openBrowser() {
-
+    launchUrl(
+      Uri.parse(url.value)
+    );
+    isOpen.value = true ;
   }
 
   void copy() {
     Clipboard.setData(ClipboardData(text: url.value));
+    DialogUtils.showToast("复制成功");
   }
 
   void tapNormal() {
+    if (!isOpen.value){
+      DialogUtils.showToast("请打开网址");
+      return;
+    }
     type.value = 1 ;
   }
 
   void tapError() {
+    if (!isOpen.value){
+      DialogUtils.showToast("请打开网址");
+      return;
+    }
     type.value = 2 ;
   }
 
@@ -75,7 +88,7 @@ class CheckDomainController extends GetxController{
     return boxDecoration ;
   }
 
-  void addImg(BuildContext ctx) {
+  void addImg(BuildContext ctx) async{
 
   }
 
