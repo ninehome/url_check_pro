@@ -19,6 +19,8 @@ class CheckDomainController extends GetxController{
 
   RxBool isOpen = false.obs ;
 
+  RxList<String> localPathList = <String>[].obs;
+
 
   final btn_all_not_select_decoration = BoxDecoration(
     border: BoxBorder.all(
@@ -104,12 +106,18 @@ class CheckDomainController extends GetxController{
       for(int i = 0 ;i < selectFiles.length ; i ++){
         var path = selectFiles[i].path;
         log('获取到的路径：$path');
+        localPathList.add(path.toString());
       }
     }
   }
 
   void uploadResult() {
 
+  }
+
+
+  void onTapDelete(int index) {
+    localPathList.removeAt(index);
   }
 
 }

@@ -1,6 +1,9 @@
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../controller/check_domain_controller.dart';
 import '../widget/value_btn_widget.dart';
@@ -186,7 +189,7 @@ class CheckDomainView extends GetView<CheckDomainController>{
                             child: GridView.builder(
                                 padding: EdgeInsets.zero,
                                 physics: NeverScrollableScrollPhysics(),
-                                itemCount: 100,
+                                itemCount: controller.localPathList.length + 1,
                                 shrinkWrap: true,
                                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                                   //横轴元素个数
@@ -199,14 +202,44 @@ class CheckDomainView extends GetView<CheckDomainController>{
                                     childAspectRatio: 1
                                 ),
                                 itemBuilder: (ctx,index){
-                                  // if(index == 0){
-                                  return InkWell(
-                                    onTap: (){
-                                      controller.addImg(ctx);
-                                    },
-                                    child: Image.asset('assets/images/img_check_upload.png',width: 100,),
-                                  );
-                                  // }
+                                  if(index == 0){
+                                    return InkWell(
+                                      onTap: (){
+                                        controller.addImg(ctx);
+                                      },
+                                      child: Image.asset('assets/images/img_check_upload.png',width: 100,),
+                                    );
+                                  }else{
+                                    return Container(
+                                      width: 100,
+                                      height: 100,
+                                      padding: EdgeInsets.only(right: 5,top: 5),
+                                      decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                          fit: BoxFit.cover,
+                                          image: FileImage(
+                                              File(controller.localPathList[index - 1])
+                                          ),
+                                        ),
+                                        borderRadius: BorderRadius.all(Radius.circular(5.r)),
+                                      ),
+                                      child: Stack(
+                                        children: [
+
+                                          Align(
+                                            alignment: Alignment.topRight,
+                                            child: InkWell(
+                                              onTap: (){
+                                                controller.onTapDelete(index-1);
+                                              },
+                                              child: Image.asset('assets/images/check_icon_close.png',width: 15,),
+                                            ),
+                                          ),
+
+                                        ],
+                                      ),
+                                    );
+                                  }
                                 }
                             ),
                           ),
