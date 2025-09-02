@@ -1,12 +1,14 @@
 import 'package:dio/dio.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:talker_dio_logger/talker_dio_logger_interceptor.dart';
 import 'package:talker_dio_logger/talker_dio_logger_settings.dart';
 
 import '../utils/sr_log_utils.dart';
 import 'DomainService.dart';
 import 'interceptors/header_interceptors.dart';
+import 'interceptors/storage_cache_interceptor.dart';
 import 'sr_rx_http.dart';
 
 /// 网络请求
@@ -34,6 +36,16 @@ class HttpManager {
         sendTimeout: const Duration(milliseconds: 30000) ,
         baseUrl: domainService.currentDomain,
       );
+
+      final storage = GetStorage();
+
+        _dio!.interceptors.add(
+          StorageCacheInterceptor(
+            storage,
+            cacheDuration: Duration(minutes: 5), //缓存清理时间
+            noCacheUrls: [], // 不缓存的请求路由
+          ),
+        );
 
         _dio!.interceptors.add(SrHeaderInterceptor());
         _dio!.interceptors.add(LogInterceptor(requestBody: true, responseBody: true));

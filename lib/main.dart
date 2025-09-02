@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:untitled2/routers/app_routers.dart';
 import 'package:untitled2/routers/sr_router_observers.dart';
 import 'package:untitled2/utils/sr_theme.dart';
@@ -40,7 +41,7 @@ Future<void> main() async {
 
 
 
-
+  await GetStorage.init(); // 初始化
 
   runApp(const MyApp());
 }
