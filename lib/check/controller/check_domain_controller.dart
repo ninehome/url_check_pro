@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -89,7 +92,18 @@ class CheckDomainController extends GetxController{
   }
 
   void addImg(BuildContext ctx) async{
-
+    FilePickerResult? result = await FilePicker.platform.pickFiles(
+      allowMultiple: true,
+      type: FileType.image,
+      // allowedExtensions: ['jpg', 'jpeg', 'png'],
+    );
+    if(result != null){
+      List<PlatformFile>  selectFiles= result.files;
+      for(int i = 0 ;i < selectFiles.length ; i ++){
+        var path = selectFiles[i].path;
+        log('获取到的路径：$path');
+      }
+    }
   }
 
   void uploadResult() {

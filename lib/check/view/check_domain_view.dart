@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
-
 import '../controller/check_domain_controller.dart';
 import '../widget/value_btn_widget.dart';
 
