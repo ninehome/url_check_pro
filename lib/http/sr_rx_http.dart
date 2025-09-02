@@ -1,7 +1,6 @@
 
 import 'dart:convert';
 import 'package:dio/dio.dart';
-import 'package:flutter/cupertino.dart';
 
 import '../common_widgets/toast_utils.dart';
 import 'http_manager.dart';
@@ -11,8 +10,6 @@ typedef ModelBuilder<T> = T Function(Map<String, dynamic> map);
 class KDRxResponse<T> {
   int code = 0;
   bool success = false;
-
-  /// 后台返回的整个json
   Map<String, dynamic>? dataJson;
   T? data;
   List<T>? list;
@@ -113,7 +110,6 @@ class KDRxHttp {
         onReceiveProgress: onReceiveProgress)
         .then((Response value) async {
       if (showHud) {
-        //隐藏弹窗hud
         DialogUtils.dismiss();
       }
       KDRxResponse<T> response = KDRxResponse<T>(value.data);
@@ -158,11 +154,9 @@ class KDRxHttp {
 
     }).onError((DioException error, stackTrace) async {
 
-      print("http错误"+error.toString());
       DialogUtils.dismiss();
       KDRxResponse<T> response = KDRxResponse<T>(null);
-      response.msg = '网络异常请重试';
-
+      response.msg = "错误${error.message}";
 
       return response;
     });

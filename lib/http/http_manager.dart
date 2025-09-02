@@ -23,8 +23,6 @@ class HttpManager {
   DomainService domainService = Get.find<DomainService>();
   static   Dio? _dio;
 
-
-  //初始化...
   HttpManager._internal() {
 
     if(_dio==null){
@@ -36,7 +34,7 @@ class HttpManager {
         sendTimeout: const Duration(milliseconds: 30000) ,
         baseUrl: domainService.currentDomain,
       );
-      // if(!const bool.fromEnvironment("dart.vm.product")){
+
         _dio!.interceptors.add(SrHeaderInterceptor());
         _dio!.interceptors.add(LogInterceptor(requestBody: true, responseBody: true));
         //能完整格式输出的日志
