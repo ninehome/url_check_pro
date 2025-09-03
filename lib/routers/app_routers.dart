@@ -1,15 +1,15 @@
 import 'package:get/get.dart';
-import 'package:untitled2/check_photo/binding/check_photo_binding.dart';
-import 'package:untitled2/check_photo/view/check_photo_view.dart';
+import '../app/check_photo/binding/check_photo_binding.dart';
+import '../app/check_photo/view/check_photo_view.dart';
 
 import '../app/login_register/views/login_view.dart';
 import '../app/today_task/view/today_task_view.dart';
-import '../check/binding/check_domain_binding.dart';
-import '../check/view/check_domain_view.dart';
-import '../check_record/binding/check_record_binding.dart';
-import '../check_record/view/check_record_view.dart';
-import '../check_result/binding/check_result_binding.dart';
-import '../check_result/view/check_result_view.dart';
+import '../app/check/binding/check_domain_binding.dart';
+import '../app/check/view/check_domain_view.dart';
+import '../app/check_record/binding/check_record_binding.dart';
+import '../app/check_record/view/check_record_view.dart';
+import '../app/check_result/binding/check_result_binding.dart';
+import '../app/check_result/view/check_result_view.dart';
 import '../app/check_list/views/check_list_view.dart';
 
 

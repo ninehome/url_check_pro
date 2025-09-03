@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import '../../../check_record/view/check_record_view.dart';
-import '../../../common_widgets/sr_textfield.dart';
 import '../../../utils/sr_scaffold.dart';
+import '../../check_record/view/check_record_view.dart';
 import '../../today_task/view/today_task_view.dart';
 import '../controllers/check_list_controller.dart';
 

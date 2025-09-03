@@ -5,8 +5,8 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
-import 'package:untitled2/check_photo/controller/check_photo_controller.dart';
 
+import '../controller/check_photo_controller.dart';
 class CheckPhotoView extends GetView<CheckPhotoController> {
   @override
   Widget build(BuildContext context) {
