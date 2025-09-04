@@ -8,6 +8,9 @@ import 'package:photo_view/photo_view_gallery.dart';
 
 import '../controller/check_photo_controller.dart';
 class CheckPhotoView extends GetView<CheckPhotoController> {
+
+  const CheckPhotoView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Obx((){

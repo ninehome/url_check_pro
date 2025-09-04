@@ -8,7 +8,7 @@ import '../controllers/check_list_controller.dart';
 
 
 class CheckListView extends StatefulWidget {
-  CheckListView({super.key});
+  const CheckListView({super.key});
 
   @override
   State<CheckListView> createState() => _LoginPageState();

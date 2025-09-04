@@ -5,6 +5,9 @@ import 'package:get/get.dart';
 import '../../../routers/app_routers.dart';
 import '../controller/check_record_controller.dart';
 class CheckRecordView extends GetView<CheckRecordController>{
+
+  const CheckRecordView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(

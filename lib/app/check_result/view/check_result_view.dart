@@ -28,6 +28,8 @@ class CheckResultView extends GetView<CheckResultController>{
     borderRadius: BorderRadius.circular(18),
   );
 
+  CheckResultView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
